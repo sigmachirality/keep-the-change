@@ -1,6 +1,6 @@
 {
   "name": "keep-the-change",
-  "displayName": "Keep the change",
+  "displayName": "Keep The Change",
   "version": "0.0.1",
   "description": "Donate to public goods funding and other causes by rounding up wallet transactions",
   "author": "sigmachirality",
@@ -10,11 +10,15 @@
     "test": "plasmo test"
   },
   "dependencies": {
+    "@endaoment/sdk": "^0.0.11",
+    "@geist-ui/core": "^2.3.8",
     "@plasmohq/messaging": "^0.5.0",
     "@plasmohq/storage": "^1.7.2",
+    "axios": "^1.5.0",
     "plasmo": "0.82.1",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "viem": "^1.9.3"
   },
   "devDependencies": {
     "@ianvs/prettier-plugin-sort-imports": "4.1.0",

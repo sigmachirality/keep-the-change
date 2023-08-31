@@ -11,11 +11,11 @@ const proxyHandler: ProxyHandler<BaseProvider["request"]> = {
   apply: (target, thisArg, argumentsList) => {
     const [requestArgs] = argumentsList;
     const { method } = requestArgs;
-    console.log(method, argumentsList);
-    if (method === "eth_accounts") {
+    console.log(requestArgs)
+    if (method === "eth_sendTransaction") {
       sendToBackgroundViaRelay({
         name: "donate-prompt",
-        body: method
+        body: requestArgs?.params?.[0].gas
       });
     }
     return Reflect.apply(target, thisArg, argumentsList);

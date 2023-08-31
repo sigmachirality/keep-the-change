@@ -1,7 +1,7 @@
 import { BaseProvider } from "@metamask/providers";
 
 declare global {
-    interface Window {
-      ethereum?: BaseProvider;
-    }
+  interface Window {
+    ethereum?: BaseProvider;
+  }
 }
