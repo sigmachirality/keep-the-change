@@ -3,6 +3,7 @@ pragma solidity ^0.8.13;
 
 import "@endaoment/Entity.sol";
 import "@uniswap/v3-periphery/SwapRouter.sol";
+import "solady/tokens/ERC20.sol";
 
 contract Donatooor {
     enum Platform {
