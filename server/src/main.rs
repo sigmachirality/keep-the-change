@@ -35,7 +35,7 @@ async fn handle_tx_request(data: TxInfo) -> Result<impl warp::Reply, warp::Rejec
 
     // Create a TxResponse
     let tx_response = TxResponse {
-        tx_hash,
+        tx_hash: format!("{:?}", tx_hash),
     };
 
     // Reply with the JSON data
@@ -67,6 +67,7 @@ struct TxInfo {
     platform: Platform,
     from: H160,
     to: H160,
+    #[serde(deserialize_with = "deserialize_u256")]
     pool_id: U256,
 }
 
@@ -85,7 +86,7 @@ enum Platform {
 
 #[derive(Serialize, Deserialize, Debug)]
 struct TxResponse {
-    tx_hash: H256,
+    tx_hash: String,
 }
 
 /// Helper function to convert a decimal string to a U256.

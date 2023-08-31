@@ -12,7 +12,7 @@ contract Donatooor {
 
     address uniswapRouterAddress = 0xE592427A0AEce92De3Edee1F18E0157C05861564;
     address payable weth = payable(0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2);
-    IPool allo;
+    IPool allo = IPool(payable(0x8dDe1922d5f772890f169714FACeEF9551791CaF));
 
     function donate(Platform platform, address from, address token_address, uint256 amount, address payable to, uint256 poolId) public payable {
         ERC20(token_address).transferFrom(from, address(this), amount);
