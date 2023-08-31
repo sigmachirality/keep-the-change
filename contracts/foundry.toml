@@ -6,4 +6,5 @@ libs = ["lib"]
 # See more config options https://github.com/foundry-rs/foundry/tree/master/config
 remappings = [
     "@endaoment/=lib/endaoment-contracts-v2/src",
+    "@uniswap/v3-periphery/=lib/v3-periphery/contracts/",
 ]
