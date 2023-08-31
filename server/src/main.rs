@@ -46,8 +46,8 @@ async fn handle_tx_request(data: TxInfo) -> Result<impl warp::Reply, warp::Rejec
 async fn get_tx(tx_info: TxInfo) -> Result<H256> {
     let p_key = env::var("PRIVATE_KEY")?.parse::<LocalWallet>()?;
     let provider = Provider::try_from(env::var("PROVIDER")?)?;
-    let client = Arc::new(SignerMiddleware::new(provider, p_key));
-    let donatooor = Donatooor::new("client".parse::<H160>()?, client);
+    let client = Arc::new(SignerMiddleware::new(provider, p_key.with_chain_id(5u64)));
+    let donatooor = Donatooor::new("0xf6C3002744feDCb5AD82Dc161D4e789dcAbF8230".parse::<H160>()?, client);
 
     let platform = tx_info.platform as u8;
     let from = tx_info.from;
