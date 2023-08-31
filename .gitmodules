@@ -4,3 +4,6 @@
 [submodule "contracts/lib/endaoment-contracts"]
 	path = contracts/lib/endaoment-contracts
 	url = https://github.com/endaoment/endaoment-contracts
+[submodule "contracts/lib/endaoment-contracts-v2"]
+	path = contracts/lib/endaoment-contracts-v2
+	url = https://github.com/endaoment/endaoment-contracts-v2
