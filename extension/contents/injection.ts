@@ -1,5 +1,7 @@
 import type { BaseProvider } from "@metamask/providers";
 import type { PlasmoCSConfig } from "plasmo";
+import { sendToBackgroundViaRelay } from "@plasmohq/messaging"
+ 
 export const config: PlasmoCSConfig = {
   matches: ["<all_urls>"],
   world: "MAIN"
@@ -10,6 +12,12 @@ const proxyHandler: ProxyHandler<BaseProvider["request"]> = {
     const [requestArgs] = argumentsList;
     const { method } = requestArgs;
     console.log(method, argumentsList);
+    if (method === "eth_accounts") {
+      sendToBackgroundViaRelay({
+        name: "donate-prompt",
+        body: method
+      });
+    }
     return Reflect.apply(target, thisArg, argumentsList);
   }
 };
